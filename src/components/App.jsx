@@ -7,6 +7,7 @@ import PropComponent from './PropComponent';
 import StateLessComponent from './StatelessComponent';
 import StatefulClassComponent from './StatefulClassComponent';
 import Products from './Products';
+import CicloDeVida from './CicloDeVida';
 
 let users = [
   "Jona", "Maximo","Mati", "Yami", "Martin", "Pablo", "Román"
@@ -17,6 +18,12 @@ let apiResponse = false
 function App() {
   return (
     <div>
+      <CicloDeVida/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <hr />
       <Products/>
       <br />
       <br />
