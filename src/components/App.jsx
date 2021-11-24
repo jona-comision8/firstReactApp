@@ -1,5 +1,10 @@
 import React from 'react'
 import './app.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 import ClassComponent from './ClassComponent';
 import Timer from './timer/Timer';
@@ -8,6 +13,11 @@ import StateLessComponent from './StatelessComponent';
 import StatefulClassComponent from './StatefulClassComponent';
 import Products from './Products';
 import CicloDeVida from './CicloDeVida';
+import Header from './Header';
+import Status404 from './Status-404';
+import User from './User';
+import Form from './Form';
+import PokeComponent from './PokeComponent';
 
 let users = [
   "Jona", "Maximo","Mati", "Yami", "Martin", "Pablo", "Román"
@@ -18,56 +28,19 @@ let apiResponse = false
 function App() {
   return (
     <div>
-      <CicloDeVida/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <Products/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <StatefulClassComponent/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <StateLessComponent/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <h2>Soy un componente funcional Stateless (Sin estado)</h2>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <ClassComponent/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <Timer/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr />
-      <PropComponent userName="Mati" users={users} />
-      <PropComponent>
-        <div>
-          <h2>Probando</h2>
-        { apiResponse ? <h1>Hola soy component childen</h1> : "No hay respuesta"}
-        </div>
-      </PropComponent>
-     
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<StatefulClassComponent/>}/>
+          <Route path="/timer" element={<Timer/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/ciclodevida" element={<CicloDeVida/>}/>
+          <Route path="/user/:id" element={<User/>}/>
+          <Route path="/form" element={<Form/>}/>
+          <Route path="/pokemons" element={<PokeComponent/>}/>
+          <Route path="*" element={<Status404/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

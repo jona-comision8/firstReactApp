@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class UserName extends Component {
     constructor (props) {
@@ -33,7 +34,7 @@ export default class UserName extends Component {
                     this.state.users.length > 0 ? (
                         <ul>
                             {this.state.users.map(user => (
-                                <li>{user.username}</li>
+                                <li><Link to={`/user/${user.id}`}>{user.username}</Link></li>
                             ))}
                         </ul>
                     ) : <p>Cargando...</p>
